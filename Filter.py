@@ -10,12 +10,12 @@ def weightSum(image,gauss,i,j):
     return weight_sum
 
 def gaussianFilter(image):
-    gauss =   np.array([[1, 1, 2, 1, 1],
+    gauss =   np.array([[1, 1, 1, 1, 1],
                         [1, 2, 4, 2, 1],
                         [2, 4, 8, 4, 2],
                         [1, 2, 4, 2, 1],
                         [1, 1, 2, 1, 1]])
-    filtered_image = np.zeros_like(image)
+    filtered_image = image.copy()
     x_dim = image.shape[1]
     y_dim = image.shape[0]
     for i in range (2,y_dim-2):
