@@ -2,12 +2,12 @@ import scipy.misc as misc
 import matplotlib.pyplot as plt
 from Filter import *
 from Hist import *
-from teacher import *
+from Classifier import *
 
 if __name__ == '__main__':
     img = misc.imread('Resources/healthy/data',0)
     # red = img.copy()
-    make_samples()
+    make_test_samples()
     # plt.subplot(1,2,1)
     # plt.imshow(red, cmap='gray')
     # filtered = gaussianFilter(red)
