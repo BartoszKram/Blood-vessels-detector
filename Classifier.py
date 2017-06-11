@@ -11,17 +11,16 @@ def construct_classifier_data():
 def make_test_samples():
     training_data = []
     targets = []
-    for i in range(1,10):
+    for i in range(1,15):
         image = scipy.misc.imread('Resources/training/images/img'+str(i))
-        # image = transformImage(image)
-        
+        image = transformImage(image)
         mask = scipy.misc.imread('Resources/training/masks/img' + str(i)+'_mask')
-        x_dim, y_dim, c = image.shape
+        x_dim, y_dim,c = image.shape
 
-        for y in range (13,y_dim-13,2):
-            for x in range (13,x_dim-13,2):
-                sample = image[x-13:x+13,y-13:y+13]
-                sample_mask = mask[x-13:x+13,y-13:y+13]
+        for y in range (6,y_dim-6,2):
+            for x in range (6,x_dim-6,2):
+                sample = image[x-6:x+6,y-6:y+6]
+                sample_mask = mask[x-6:x+6,y-6:y+6]
                 sample_attributes = extract_attributes(sample)
                 training_data.append(sample_attributes)
                 if(test_sample_mask(sample_mask)):
@@ -84,10 +83,10 @@ def read_training_data(mode):
 
 def make_samples(image):
     attributes=[]
-    x_dim,y_dim,c = image.shape
-    for y in range(13, y_dim - 13,2):
-        for x in range(13, x_dim - 13,2):
-            sample = image[x - 13:x + 13, y - 13:y + 13]
+    x_dim,y_dim,c= image.shape
+    for y in range(6, y_dim - 6,2):
+        for x in range(6, x_dim - 6,2):
+            sample = image[x - 6:x + 6, y - 6:y + 6]
             sample_attributes = extract_attributes(sample)
             sample_attributes.append(str(x))
             sample_attributes.append(str(y))

@@ -1,5 +1,6 @@
 .idea/
 Resources/
-__pycache__/
+Results/
 *.pyc
 *.pyo
+__pycache__/
